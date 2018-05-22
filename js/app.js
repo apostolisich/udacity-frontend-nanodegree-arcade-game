@@ -15,15 +15,11 @@ class Enemy {
    // This function is responsible for moving the enemies on the canvas 
    // and checks for collision with the player object.
     update (dt) {
-        this.x = (this.x >= 500 ? -100 : this.x += (1 * this.speed));
-
-        if(this.x + 50 >= player.x && this.x + 50 <= player.x + 100 && this.y == player.y) {
-            player.x = 202;
-            player.y = 390;
-            score = score - 15 > 0 ? score -= 15 : 0;
-            document.getElementById('score-counter').innerHTML = score;
+        if(this.x >= 500) {
+            this.x = -100;
+        }else {
+            this.x += (1 * this.speed);
         }
-    
     }
     // This functions renders the image on the canvas.
     render() {
@@ -120,3 +116,19 @@ function checkForCompletion() {
         document.getElementById('score-counter').innerHTML = score;
     }
 }
+
+// This functon checks for collision between the player and the enemies.
+// We only have 3 enemies and 1 player which means that we don't have to
+// create a more optimized solution.
+setInterval(
+    function () {
+        allEnemies.forEach(function(enemy){
+            if(enemy.x + 50 >= player.x && enemy.x + 50 <= player.x + 100 && enemy.y == player.y) {
+                player.x = 202;
+                player.y = 390;
+                score = score - 15 > 0 ? score -= 15 : 0;
+                document.getElementById('score-counter').innerHTML = score;
+            }
+        });
+    }
+, 100);
