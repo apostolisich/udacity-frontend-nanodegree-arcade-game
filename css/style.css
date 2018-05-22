@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+}
+
+.score-p {
+    font: 26px 'Baloo Chettan', Cursive;
+}
+
+.success {
+    display: none;
+}
+
+.success p {
+    font: 20px 'Lobster', cursive;
+}
+
+.restart-btn {   
+    width: 110px;
+    height: 35px;
+    background-color: #4c4cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;   
+}
+
+.restart-btn:hover {
+    background-color: white;
+    border: 1px solid #4c4cff;
+    color: #4c4cff;
+}
